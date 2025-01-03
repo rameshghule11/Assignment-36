@@ -26,6 +26,23 @@
             kiren: 9970126570,
         };
 
+        function search() {
+            const searchInput = document.getElementById("search").value.trim(); 
+            const result = document.getElementById("result");
+            
+            result.style.display = "none";
+
+            for (let name in contacts) {
+                if (name.toLowerCase() === searchInput.toLowerCase()) {
+                    result.innerHTML = `<strong>${name}</strong>&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;<strong>${contacts[name]}</strong>`;
+                    result.style.display = "block"; 
+                    return;
+                }
+            }
+
+            result.innerHTML = `Contact not found`;
+            result.style.display = "block"; 
+        }
     </script>
 </body>
 </html>
